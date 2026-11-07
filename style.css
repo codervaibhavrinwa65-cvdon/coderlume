@@ -1,4 +1,17 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080b16;
+  --panel: #11182a;
+  --panel2: #182239;
+  --border: rgba(255,255,255,.09);
+  --text: #f6f7ff;
+  --muted: #8994ad;
+  --blue: #38bdf8;
+  --purple: #a78bfa;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,40 +19,157 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #101426;
-  color: #ffffff;
+  background:
+    radial-gradient(ellipse at 10% 0%, #14234b 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 20%, #29134b 0%, transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
   min-height: 100vh;
 }
 
 #app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 25px;
+  width: min(1100px, 100%) !important;
+  margin: auto !important;
+  padding: 32px 22px !important;
 }
 
 h1 {
-  font-size: clamp(42px, 8vw, 76px);
+  font-size: clamp(38px, 6vw, 64px);
   font-weight: 900;
-  letter-spacing: 5px;
-  background: linear-gradient(90deg, #55c8ff, #a78bfa);
-  background-clip: text;
+  letter-spacing: -3px;
+  text-align: center;
+  background: linear-gradient(100deg, #fff, #38bdf8, #a78bfa);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
-  margin-bottom: 18px;
+  margin: 20px 0 8px;
+}
+
+h2 {
+  font-size: 23px;
+  margin: 18px 0;
+  letter-spacing: -.6px;
 }
 
 p {
-  color: #b8c1d9;
-  font-size: 18px;
+  color: var(--muted);
   line-height: 1.7;
 }
 
-p:first-of-type {
-  color: #55c8ff;
-  font-weight: bold;
+#app > p {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+#authBox, #socialBox {
+  max-width: 720px;
+  margin: 30px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #151e35, #101626);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 20px 70px #0007;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px 17px;
+  background: #090f20;
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font: inherit;
+  transition: .2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #38bdf822;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input[type="file"] {
+  background: #151e35;
+}
+
+button {
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(110deg, #168bfa, #8255ee);
+  box-shadow: 0 5px 22px #5269ff35;
+  transition: transform .2s, filter .2s;
+  margin: 4px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+article {
+  background: #151e35 !important;
+  border: 1px solid var(--border);
+  border-radius: 20px !important;
+  padding: 22px !important;
+  margin: 22px 0 !important;
+  overflow: hidden;
+}
+
+article strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #c4d9ff;
+}
+
+article p {
+  color: white;
+  margin: 10px 0;
+}
+
+article img {
+  border-radius: 15px;
+}
+
+#message, #postMessage {
+  margin-top: 15px;
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+::selection {
+  background: #704cf5;
+  color: white;
+}
+
+@media(max-width: 600px) {
+  #app {
+    padding: 15px !important;
+  }
+
+  #authBox, #socialBox {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
